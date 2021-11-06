@@ -4,19 +4,24 @@
     box-shadow: 5px 5px 5px 5px rgb(196, 196, 196);
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: rgba(0, 161, 248, 0.357);
+    background-color: rgba(0, 161, 248, 0.796);
     cursor: pointer;
+    color: white;
 }
 
 .cardWheater:hover{
     transition-duration: 1000ms;
-    padding-bottom: 30px;
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
-    background-color: rgba(0, 161, 248, 0.796);
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
     color: white;
 
+}
+
+.cardInput{
+    border-radius: 5px;
+    background-color:  rgba(0, 161, 248, 0.796);
+    box-shadow: 5px 5px 5px 5px rgb(196, 196, 196);
 }
 
 

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Form from "./components/Form";
 function App() {
   const [wheaterData, setWheaterData] = useState({});
   const [paisData, setPaisData] = useState("");
   const API_KEY = "b28f2723397ffa83631027439ae40b41";
-  // const pais = "Buenos Aires";
 
   useEffect(() => {
     wheaterApi();
@@ -20,6 +20,7 @@ function App() {
         console.log(response);
         setWheaterData(response);
         console.log();
+        
       }
     } catch (error) {
       console.log(error);
@@ -30,11 +31,10 @@ function App() {
     <div>
     
       <div className="text-center my-5 row">
-      <div className="col-md-4 col-sm-12">
-        <label className="form-label">Ingrese su país</label>
-        <input type="text" className="form-control" placeholder="Buenos Aires" onChange={(e) => setPaisData(e.target.value)}/>
-        <button className="w-100 btn btn-primary" onClick={wheaterApi}>Enviar</button>
-      </div>
+        <Form
+          setPaisData={setPaisData}
+          wheaterApi={wheaterApi}
+        />
         <div className="container col-md-7 col-sm-12">
           <h2 className="mb-5 ">Wheater App</h2>
           <div className="cardWheater mx-2">
