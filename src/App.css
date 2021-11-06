@@ -1,9 +1,22 @@
 
-
 .cardWheater{
     border-radius: 5px;
     box-shadow: 5px 5px 5px 5px rgb(196, 196, 196);
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: rgba(0, 161, 248, 0.357);
+    cursor: pointer;
 }
+
+.cardWheater:hover{
+    transition-duration: 1000ms;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgba(0, 161, 248, 0.796);
+    color: white;
+
+}
+
+

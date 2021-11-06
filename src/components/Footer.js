@@ -1,11 +1,11 @@
 import React from 'react'
-
+import "../App.css";
 export const Footer = () => {
     return (
         <>
-            <div className="bg-dark p-5 mt-5 pt-5 text-light text-center ">
+            <footer className="bg-dark p-3 text-light text-center foter position-fixed">
             <p>Developed by Sebastian Mosquera with </p>
-            </div>  
+            </footer>  
         </>
     )
 }
