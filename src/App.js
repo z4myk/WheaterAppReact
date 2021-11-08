@@ -5,7 +5,9 @@ import 'animate.css'
 function App() {
   const [wheaterData, setWheaterData] = useState({});
   const [paisData, setPaisData] = useState("");
-  const [mostrarCard, setMostrarCard] = useState(false)
+  const [mostrarCard, setMostrarCard] = useState(false);
+  const [msgError, setMsgError] = useState(false);
+  const [spinner, setSpinner] = useState(false);
   const API_KEY = "b28f2723397ffa83631027439ae40b41";
 
   useEffect(() => {
@@ -21,10 +23,20 @@ function App() {
         const response = await request.json();
         console.log(response);
         setWheaterData(response);
-        setMostrarCard(true)
+        setMostrarCard(false)
+        setSpinner(true)
+        setTimeout(() => {
+          setSpinner(false)
+          if(spinner === false ){
+            setMostrarCard(true)
+          }
+        }, 2000)
         
       }else if(request.status === 404){
-        alert('Ingrese un pais valido')
+        setMsgError(true)
+        setTimeout(() => { 
+          setMsgError(false)
+        }, 2000)
       }
     } catch (error) {
       console.log(error);
@@ -39,9 +51,18 @@ function App() {
           setPaisData={setPaisData}
           wheaterApi={wheaterApi}
           paisData={paisData}
+          msgError={msgError}
+          setMsgError={setMsgError}
         />
+
+        {
+          spinner ? (
+            <i className="fas fa-stroopwafel fa-spin fa-4x text-warning"></i>
+          ) : null
+        }
+
         { mostrarCard ? (
-            <div className="col-sm-12  animate__animated animate__fadeInRight">
+            <div className="col-sm-12 cardPrincipal animate__animated animate__fadeInRight">
             <div className="cardWheater mx-2">
               <h4>
                 {wheaterData && wheaterData.name}
@@ -49,9 +70,9 @@ function App() {
                   {wheaterData.sys && wheaterData.sys.country}
                 </span>
               </h4>
-              <hr className="text-black bg-primary p-1" />
+              <hr className="text-black bg-primary" />
               <p>
-                Temp: {Math.round(wheaterData.main && wheaterData.main.temp)}°C
+              T: <i className="fas fa-temperature-high fa-1x text-danger"></i> {Math.round(wheaterData.main && wheaterData.main.temp)}°C
               </p>
   
               <div class="d-flex justify-content-around">
