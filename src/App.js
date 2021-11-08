@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import 'animate.css'
+import Navigation from "./components/Navigation";
 function App() {
   const [wheaterData, setWheaterData] = useState({});
   const [paisData, setPaisData] = useState("");
@@ -13,6 +14,7 @@ function App() {
   useEffect(() => {
     wheaterApi();
   }, []);
+
 
   const wheaterApi = async () => {
     const request = await fetch(
@@ -36,16 +38,30 @@ function App() {
         setMsgError(true)
         setTimeout(() => { 
           setMsgError(false)
-        }, 2000)
+        },2000)
       }
     } catch (error) {
       console.log(error);
     }
   };
 
+  if(paisData.trim() !== '' && paisData.value === ''){
+    setSpinner(false)
+    setMostrarCard(false)
+    setMsgError(true)
+    setTimeout(() => { 
+      setMsgError(false)
+    }, 2000)
+  }
+
+  const removeCard = () => {
+    setMostrarCard(false)
+    setSpinner(false)
+  }
+
   return (
-    <div>
-    
+    <>
+      <Navigation />
       <div className="text-center my-5 container">
         <Form
           setPaisData={setPaisData}
@@ -64,8 +80,11 @@ function App() {
         { mostrarCard ? (
             <div className="col-sm-12 cardPrincipal animate__animated animate__fadeInRight">
             <div className="cardWheater mx-2">
+                <div>
+                <i onClick={removeCard} class="fas fa-arrow-left fa-2x text-danger d-flex flex-end"></i>
+                </div>
               <h4>
-                {wheaterData && wheaterData.name}
+                 {wheaterData && wheaterData.name}
                 <span className="badge bg-warning mx-1">
                   {wheaterData.sys && wheaterData.sys.country}
                 </span>
@@ -99,7 +118,7 @@ function App() {
       
        
       </div>
-    </div>
+    </>
   );
 }
 

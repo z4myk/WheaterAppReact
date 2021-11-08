@@ -1,6 +1,9 @@
 import React from "react";
 
 export const Form = (props) => {
+
+
+
   return (
     <>
       <div className="col-sm-12 cardInput my-3  animate__animated animate__fadeInDown">
@@ -14,7 +17,7 @@ export const Form = (props) => {
         />
         {props.msgError ? (
           <div class="alert alert-danger animate__animated animate__fadeInUp my-1" role="alert">
-            Ingrese una ciudad válida
+            <i class="fas fa-exclamation-circle text-danger "></i> Ingrese una ciudad válida.
           </div>
         ) : null}
         <button
