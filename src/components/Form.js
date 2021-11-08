@@ -1,11 +1,14 @@
 import React from "react";
 
 export const Form = (props) => {
+
+
+
   return (
     <>
-      <div className="col-md-4 col-sm-12 mx-3 my-5 cardInput">
-        <label className="form-label text-white">Ingrese su país</label>
-        <hr />
+      <div className="col-sm-12 cardInput my-3  animate__animated animate__fadeInDown">
+        <h4>Ingrese nombre de su localidad</h4>
+        <hr className="bg-primary" />
         <input
           type="text"
           className="form-control"

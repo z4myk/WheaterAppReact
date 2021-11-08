@@ -1,27 +1,27 @@
 
 .cardWheater{
     border-radius: 5px;
-    box-shadow: 5px 5px 5px 5px rgb(196, 196, 196);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: rgba(0, 161, 248, 0.796);
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.248);
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.796);
     cursor: pointer;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .cardWheater:hover{
     transition-duration: 1000ms;
-    padding-top: 40px;
     padding-left: 40px;
     padding-right: 40px;
-    color: white;
+    color: rgb(0, 0, 0);
 
 }
 
 .cardInput{
     border-radius: 5px;
-    background-color:  rgba(0, 161, 248, 0.796);
-    box-shadow: 5px 5px 5px 5px rgb(196, 196, 196);
+    background-color:  rgba(255, 255, 255, 0.796);
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.248);
+    padding: 10px;
+    
 }
 
 
