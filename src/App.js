@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./components/Form";
-import 'animate.css'
 import Navigation from "./components/Navigation";
+import 'animate.css'
 function App() {
   const [wheaterData, setWheaterData] = useState({});
   const [paisData, setPaisData] = useState("");
